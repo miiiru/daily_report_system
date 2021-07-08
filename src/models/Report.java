@@ -40,7 +40,7 @@ public class Report {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+// 1対多
     @ManyToOne
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
