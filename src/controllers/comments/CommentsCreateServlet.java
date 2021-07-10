@@ -10,9 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import models.Comment;
 import models.Employee;
+import models.Report;
 import models.validators.CommentValidator;
 import utils.DBUtil;
 
@@ -40,6 +42,8 @@ public class CommentsCreateServlet extends HttpServlet {
 
             Comment c = new Comment();
 
+            HttpSession session = request.getSession();
+            c.setReport((Report)session.getAttribute("report"));
             c.setEmployee((Employee)request.getSession().getAttribute("login_employee"));
             c.setContent(request.getParameter("content"));
 

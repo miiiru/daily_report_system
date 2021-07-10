@@ -48,11 +48,9 @@
     </p>
 </c:if>
 
-<label for="name">氏名</label>
-<br />
-<textarea name="name" name="3">${comment.name}</textarea>
-<br />
-<br />
+<label for="name">氏名</label><br />
+<c:out value="${sessionScope.login_employee.name}" />
+<br /><br />
 
 <label for="content">コメント</label>
 <br />
