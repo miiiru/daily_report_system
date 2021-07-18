@@ -45,7 +45,8 @@ public class CommentsCreateServlet extends HttpServlet {
             HttpSession session = request.getSession();
             c.setReport((Report)session.getAttribute("report"));
             c.setEmployee((Employee)request.getSession().getAttribute("login_employee"));
-            c.setContent(request.getParameter("content"));
+            c.setContent((String)session.getAttribute("content"));
+
 
             List<String> errors = CommentValidator.validate(c);
             if(errors.size() > 0) {

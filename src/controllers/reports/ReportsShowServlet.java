@@ -32,15 +32,17 @@ public class ReportsShowServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // EntityManagerのオブジェクトを生成
         EntityManager em = DBUtil.createEntityManager();
-
         Report r = em.find(Report.class, Integer.parseInt(request.getParameter("id")));
+
 
         em.close();
 
         HttpSession session = request.getSession();
         session.setAttribute("report", r);
         request.setAttribute("_token", request.getSession().getId());
+
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/show.jsp");
         rd.forward(request, response);

@@ -48,7 +48,7 @@
         </c:choose>
 
         <p><a href="<c:url value="/reports/index" />">一覧に戻る</a></p>
-        <p><a href="<c:url value="/comments/index" />">コメント一覧</a></p>
+        <p><a href="<c:url value="/comments/index?comment=${comments}" />">コメント一覧</a></p>
         <p><a href="<c:url value="/comments/new" />">コメントの作成</a></p>
     </c:param>
 </c:import>

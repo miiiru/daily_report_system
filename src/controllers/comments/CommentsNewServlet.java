@@ -32,7 +32,7 @@ public class CommentsNewServlet extends HttpServlet {
         request.setAttribute("_token", request.getSession().getId());
 
         Comment c = new Comment();
-        request.setAttribute("commnet", c);
+        request.setAttribute("comment", c);
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/comments/new.jsp");
         rd.forward(request, response);    }

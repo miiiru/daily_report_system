@@ -54,7 +54,7 @@
 
 <label for="content">コメント</label>
 <br />
-<textarea name="content" rows="10" cols="50">${comment.content}</textarea>
+<textarea name="content" rows="10" cols="50">${comment.content}" /></textarea>
 <br />
 <br />
 

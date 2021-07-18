@@ -30,6 +30,7 @@ public class ReportsNewServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       // セッションIDを取っている(newとcreate各々のサーブレットの実行者が同一人物だと確認するため)
         request.setAttribute("_token", request.getSession().getId());
 
         Report r = new Report();
