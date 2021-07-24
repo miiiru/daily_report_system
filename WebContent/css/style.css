@@ -156,3 +156,18 @@ pre {
 h3 {
     font-size: larger;
 }
+table#comment_list th {
+    margin-left: auto;
+}
+
+table#comment_list .comment_name {
+    width: 20%
+    padding: 10px 2%;
+}
+table#comment_list .comment_content {
+    width: 20%;
+}
+table#comment_list .comment_action {
+    width: 13%;
+}
+

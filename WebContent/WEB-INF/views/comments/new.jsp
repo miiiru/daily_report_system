@@ -8,8 +8,8 @@
 
         <form method="POST" action="<c:url value='/comments/create' />">
             <c:import url="_form.jsp" />
-        </form>
-
-        <p><a href="<c:url value="/comments/index" />">コメント一覧に戻る</a></p>
+            </form>
+        <p><a href="<c:url value="/comments/index" />">コメント一覧に戻る</a>
+        </p>
     </c:param>
 </c:import>

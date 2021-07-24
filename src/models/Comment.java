@@ -29,7 +29,11 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "getMyCommentsCount",
         query = "SELECT COUNT(c) FROM Comment AS c WHERE c.employee = :employee"
-    )
+    ),
+    @NamedQuery(
+        name = "getReportIdComments",
+        query = "SELECT c FROM Comment AS c WHERE c.report = :report"
+        )
 })
 @Entity
 public class Comment {

@@ -1,5 +1,7 @@
 package models;
 
+// 以下2つは日付データを管理するためのクラス
+// Dateは年月日のみ、Timestampは年月日の他に時分秒（ミリ秒）まで情報を管理できる
 import java.sql.Date;
 import java.sql.Timestamp;
 
@@ -40,17 +42,20 @@ public class Report {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-// 1対多
+    // 1対多 日報の作成者はログインしている従業員の情報をオブジェクトのままemployeeフィールドに格納
     @ManyToOne
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
+    // report_dateはいつの仕事の日報かを表すので時分秒が不要のためDate型にしている
     @Column(name = "report_date", nullable = false)
     private Date report_date;
 
     @Column(name = "title", length = 255, nullable = false)
     private String title;
-
+    
+    // @Lobアノテーションはテキストエリアの指定を行う。この指定で改行もDBに保存される
+    // contentは日報の詳細な内容を記述するフィールド
     @Lob
     @Column(name = "content", nullable = false)
     private String content;

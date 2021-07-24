@@ -34,16 +34,22 @@ public class CommentsIndexServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-     // EntityManagerのオブジェクトを生成
+        // EntityManagerのオブジェクトを生成
         EntityManager em = DBUtil.createEntityManager();
 
-      //JPQLの文につけた名前 getAllComments を createNamedQuery メソッドの引数に指定してあげることで、データベースへの問い合わせを実行
-        //問い合わせ結果を getResultList() メソッドを使ってリスト形式で取得
-        List<Comment> comments = em.createNamedQuery("getAllComments", Comment.class).getResultList();
+        // レポート詳細ページにて格納されていたreport_idを取得する
+        Object r = request.getSession().getAttribute("report");
+
+        // 指定したレポートIDのコメントを全て取得する
+        List<Comment> comments = em.createNamedQuery("getReportIdComments",Comment.class)
+                                    .setParameter("report", r)
+                                    .getResultList();
+
 
         em.close();
 
         HttpSession session = request.getSession();
+        // 下記の"comments"は_formCommentIndex.jspのitems="${comments}と対応
         session.setAttribute("comments", comments);
 
 

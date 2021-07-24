@@ -40,6 +40,7 @@ public class ReportsShowServlet extends HttpServlet {
         em.close();
 
         HttpSession session = request.getSession();
+        // 下の"report"は_formCommentIndex.jspの"${report.content}"に対応
         session.setAttribute("report", r);
         request.setAttribute("_token", request.getSession().getId());
 
