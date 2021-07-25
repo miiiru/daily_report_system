@@ -52,6 +52,10 @@ public class CommentsIndexServlet extends HttpServlet {
         // 下記の"comments"は_formCommentIndex.jspのitems="${comments}と対応
         session.setAttribute("comments", comments);
 
+        if(request.getSession().getAttribute("flush") != null) {
+            request.setAttribute("flush", request.getSession().getAttribute("flush"));
+            request.getSession().removeAttribute("flush");
+        }
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/comments/index.jsp");
         rd.forward(request, response);
